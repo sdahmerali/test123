@@ -1,13 +1,322 @@
+Here is a modern, single-file HTML landing page for **AirBuds Premium**. It uses **Bootstrap 5**, Font Awesome icons, and a dark glassmorphic color scheme (`#0f172a` deep navy background with `#06b6d4` vibrant cyan accents) designed specifically to showcase audio tech.
+
+### Code (`index.html`)
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>AirBuds Pro | Ultimate Wireless Audio</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: rgba(30, 41, 59, 0.7);
+            --accent-cyan: #06b6d4;
+            --accent-glow: rgba(6, 182, 212, 0.25);
+            --text-muted: #94a3b8;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #f8fafc;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Modern Glassmorphic Navbar */
+        .navbar {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .btn-cyan {
+            background-color: var(--accent-cyan);
+            color: #0f172a;
+            font-weight: 600;
+            border-radius: 30px;
+            padding: 10px 28px;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-cyan:hover {
+            background-color: #22d3ee;
+            color: #0f172a;
+            box-shadow: 0 0 20px var(--accent-glow);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-custom {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            border-radius: 30px;
+            padding: 10px 28px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-custom:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border-color: #ffffff;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 120px 0 80px;
+            background: radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.15) 0%, transparent 50%);
+        }
+
+        .hero-img {
+            max-width: 100%;
+            filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.6));
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+        }
+
+        /* Cards */
+        .glass-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Feature Icons */
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--accent-cyan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .badge-pill {
+            background: rgba(6, 182, 212, 0.15);
+            color: var(--accent-cyan);
+            border: 1px solid var(--accent-cyan);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            background: #090d16;
+        }
+    </style>
 </head>
 <body>
 
-    <h1>Lund khan</h1>
-    
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+                <i class="fa-solid fa-headphones-simple text-info me-2"></i> AirBuds Pro
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-4">
+                    <li class="nav-item"><a class="nav-link px-3" href="#features">Features</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#specs">Tech Specs</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#reviews">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#pricing">Buy Now</a></li>
+                </ul>
+                <a href="#pricing" class="btn btn-cyan btn-sm">Order Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section d-flex align-items-center">
+        <div class="container">
+            <div class="row align-items-center gy-5">
+                <div class="col-lg-6">
+                    <span class="badge-pill mb-3 d-inline-block text-uppercase fw-bold">Next-Gen Audio Technology</span>
+                    <h1 class="display-3 fw-bold mb-3">Immerse Yourself in Pure Sound</h1>
+                    <p class="lead text-secondary mb-4">
+                        Experience active noise cancellation, studio-grade acoustics, and 40-hour battery life—wrapped in an ultra-lightweight ergonomic design.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#pricing" class="btn btn-cyan">Buy Now - $199</a>
+                        <a href="#specs" class="btn btn-outline-custom">Explore Specs</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=800&q=80" alt="AirBuds Pro" class="hero-img img-fluid rounded-4">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold fs-1">Engineered for Perfection</h2>
+                <p class="text-secondary">Designed with cutting-edge audio hardware for seamless listening.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="glass-card p-4 h-100">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-volume-xmark"></i>
+                        </div>
+                        <h4 class="fw-semibold mb-2">Active Noise Cancellation</h4>
+                        <p class="text-secondary m-0">Advanced AI algorithms block up to 45dB of background ambient noise automatically.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="glass-card p-4 h-100">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-battery-full"></i>
+                        </div>
+                        <h4 class="fw-semibold mb-2">40-Hour Playtime</h4>
+                        <p class="text-secondary m-0">Get up to 8 hours on a single charge and an additional 32 hours from the wireless charging case.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="glass-card p-4 h-100">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <h4 class="fw-semibold mb-2">Ultra-Fast Bluetooth 5.3</h4>
+                        <p class="text-secondary m-0">Ultra-low latency audio streaming ensures lag-free gaming, movies, and calls.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="specs" class="py-5 bg-opacity-25 bg-black">
+        <div class="container py-4">
+            <div class="row align-items-center gy-4">
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?auto=format&fit=crop&w=800&q=80" alt="Charging Case" class="img-fluid rounded-4 shadow">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="fw-bold mb-4">Technical Specifications</h2>
+                    <ul class="list-unstyled">
+                        <li class="d-flex justify-content-between border-bottom border-secondary py-3">
+                            <span class="text-secondary">Driver Size</span>
+                            <span class="fw-semibold">11mm Dynamic Drivers</span>
+                        </li>
+                        <li class="d-flex justify-content-between border-bottom border-secondary py-3">
+                            <span class="text-secondary">Water Resistance</span>
+                            <span class="fw-semibold">IPX7 Sweat & Water Proof</span>
+                        </li>
+                        <li class="d-flex justify-content-between border-bottom border-secondary py-3">
+                            <span class="text-secondary">Fast Charging</span>
+                            <span class="fw-semibold">10 min charge = 2 hrs playback</span>
+                        </li>
+                        <li class="d-flex justify-content-between border-bottom border-secondary py-3">
+                            <span class="text-secondary">Microphones</span>
+                            <span class="fw-semibold">6x Beamforming Mics with ENC</span>
+                        </li>
+                        <li class="d-flex justify-content-between py-3">
+                            <span class="text-secondary">Weight</span>
+                            <span class="fw-semibold">4.2g (per earbud)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold fs-1">Loved by Audiophiles</h2>
+                <p class="text-secondary">See what verified listeners are saying about AirBuds Pro.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="glass-card p-4 h-100">
+                        <div class="text-warning mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-secondary">"The active noise cancellation rivals $300+ headphones. The bass response is super clean without muddying the mids."</p>
+                        <h6 class="fw-bold mb-0">Alex M.</h6>
+                        <small class="text-muted">Verified Buyer</small>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="glass-card p-4 h-100">
+                        <div class="text-warning mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-secondary">"Fit is incredibly comfortable for long working hours. Switching seamlessly between my laptop and phone is effortless."</p>
+                        <h6 class="fw-bold mb-0">Sarah K.</h6>
+                        <small class="text-muted">Verified Buyer</small>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="glass-card p-4 h-100">
+                        <div class="text-warning mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-secondary">"Battery life easily lasts me standard work trips without needing a wall charger. Highly recommended!"</p>
+                        <h6 class="fw-bold mb-0">David P.</h6>
+                        <small class="text-muted">Verified Buyer</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="py-5">
+        <div class="container py-4">
+            <div class="glass-card p-5 text-center position-relative overflow-hidden">
+                <span class="badge-pill mb-3 d-inline-block">Limited Time Offer</span>
+                <h2 class="display-4 fw-bold mb-3">Ready for Better Sound?</h2>
+                <p class="lead text-secondary mb-4 mx-auto" style="max-width: 600px;">
+                    Order now and receive free worldwide shipping along with a 30-day money-back guarantee.
+                </p>
+                <div class="d-flex justify-content-center align-items-baseline mb-4">
+                    <span class="h1 fw-bold text-info me-2">$199</span>
+                    <span class="text-decoration-line-through text-secondary fs-5">$249</span>
+                </div>
+                <button class="btn btn-cyan btn-lg px-5">Get Your AirBuds Pro</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-4">
+        <div class="container text-center text-md-between d-md-flex align-items-center">
+            <p class="mb-2 mb-md-0 text-secondary">&copy; 2026 AirBuds Inc. All rights reserved.</p>
+            <div class="d-flex justify-content-center gap-4">
+                <a href="#" class="text-secondary text-decoration-none"><i class="fa-brands fa-twitter fs-5"></i></a>
+                <a href="#" class="text-secondary text-decoration-none"><i class="fa-brands fa-instagram fs-5"></i></a>
+                <a href="#" class="text-secondary text-decoration-none"><i class="fa-brands fa-youtube fs-5"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
